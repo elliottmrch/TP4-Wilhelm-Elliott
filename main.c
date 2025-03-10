@@ -1,12 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "fichier.h"
 
 int main()
 {
-    int nbr = 8;
-    int *pNbr = &nbr;
-
-    printf("Le nombre est %d avec les pointeurs V2", *pNbr);
-
+    struct Cell *list;
+    int i, j;
+    for (j = 0; j < 10; ++j)
+    {
+        for (i = 0; i < 10; ++i)
+            sortInsert(&list, newCell(random() % 23));
+        printList(list);
+        power2(list);
+        printList(list);
+        freeList(list);
+        list = NULL;
+    }
     return 0;
 }
